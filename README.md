@@ -1,20 +1,6 @@
-# devops-challenge-entry-solution
-Particle 41 Code Solution - Entry
-
-
-Challenge :
 # Particle41 DevOps Challenge - Entry level
 
-
-This is an entry-level challenge for candidates who want to join the Particle41 DevOps team.
-
-It is designed to test your level of familiarity with development and operations tools and concepts.
-
-You will have **4 hours** to complete the challenge.
-
-
-## The challenge
-
+## CHALLENGE
 
 Create a simple microservice in any programming language of your choice, as follows:
 
@@ -55,11 +41,11 @@ Other criteria for evaluation will be:
 
 
 
-## SOLUTION
+# SOLUTION
 
-### Toolchain Setup for macOS
+## Toolchain Setup for macOS
 
-## Operating System Version
+### Operating System Version
 
 This documentation is written for macOS High Sierra. If you are running
 an older version, it is recommended to upgrade before proceeding. Use
@@ -111,20 +97,18 @@ You need to [configure docker](https://docs.docker.com/engine/reference/commandl
 
 Clone this repo. 
 
-```
+``` shell
 # Open terminal
 git clone https://github.com/Priteshkal/devops-challenge-entry-solution.git
 
 cd devops-challenge-entry-solution
-
-ls
 ```
 
 ## POST SETUP
 
 Once all the above tools are set up you are ready to Deploy a microservice locally with the following features after deploying it using the following command in the terminal:
 
-```
+```shell
 # Simple Microservice
 kubectl apply -f simplewebserver.yaml
 
@@ -146,7 +130,7 @@ kubectl apply -f simplewebserver.yaml
 
 # Accessing the Service
 
-```
+```shell
 kubectl get all | grep "simplewebserver"
 ```
 
