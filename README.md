@@ -136,7 +136,10 @@ kubectl apply -f simplewebserver.yaml
 
 # Open browser to see deployed app using minikube
 minikube start
-minikube service simplewebserver-service
+# This will take some time if starting on the machine for the first time - please be patient
+
+minikube service simplewebserver-service 
+# Minikube will automatically open our microservice in the default web browser 
 
 ```
 
@@ -151,4 +154,7 @@ kubectl delete services simplewebserver-service
 # To delete the Deployment, the ReplicaSet, and the Pods that are running the microservice, enter this command:
 
 kubectl delete deployment simplewebserver
+
+# Cleanup miniube
+minikube delete --all
 ```
