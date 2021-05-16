@@ -57,10 +57,7 @@ Other criteria for evaluation will be:
 
 ## SOLUTION
 
----
-title: Toolchain Setup for macOS
-weight: 20
----
+### Toolchain Setup for macOS
 
 ## Operating System Version
 
@@ -76,7 +73,7 @@ other tools.
 
 ``` shell
 # Run the official Homebrew installer
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Get Homebrew-Cask
 brew tap caskroom/cask
@@ -87,9 +84,16 @@ brew update
 
 ## Install Tools
 
+We need Docker and Kubernetes installed and configured to run this Simple Microservice in Kubernetes
+
 ``` shell
+# GIT
+# https://git-scm.com/download/mac
+brew install git
+
 # Docker
 # https://www.docker.com/community-edition
+# https://www.cprime.com/resources/blog/docker-on-mac-with-homebrew-a-step-by-step-tutorial/
 brew cask install docker
 
 # Configure and Start Docker
@@ -102,3 +106,47 @@ brew install kubectl
 # Test to ensure latest version of Kubernetes
 kubectl version --client
 ```
+
+You need to [configure docker](https://docs.docker.com/engine/reference/commandline/login/) using `docker login`
+
+Clone this repo. 
+
+```
+# Open terminal
+git clone https://github.com/Priteshkal/devops-challenge-entry-solution.git
+
+cd devops-challenge-entry-solution
+
+ls
+```
+
+## POST SETUP
+
+Once all the above tools are set up you are ready to Deploy a microservice locally with the following features after deploying it using the following command in the terminal:
+
+```
+# Simple Microservice
+kubectl apply -f simplewebserver.yaml
+
+```
+
+- The application is a web server that returns a JSON response with the following structure, when its `/` URL path is accessed:
+
+```json
+{
+  "timestamp": "<current date and time>",
+  "ip": "<the IP address of the visitor>"
+}
+```
+
+- Dockerfile for this microservice is published as an [image](https://hub.docker.com/repository/docker/priteshk1/devops-challenge-entry-particle41/general) to Docker Hub and is being pulled from there. Application is configured to run as a non-root user - "NGNIX" in the container.
+
+- Kubernetes manifest in YAML format, containing a Deployment and a Service, to deploy your microservice on Kubernetes. Your Deployment must use your public Docker image.
+
+
+# Accessing the Service
+
+```
+kubectl get all | grep "simplewebserver"
+```
+
