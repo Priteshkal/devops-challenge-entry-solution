@@ -91,6 +91,8 @@ brew install kubectl
 
 # Test to ensure latest version of Kubernetes
 kubectl version --client
+
+# Install Minikube to interact with application
 ```
 
 You need to [configure docker](https://docs.docker.com/engine/reference/commandline/login/) using `docker login`
@@ -131,6 +133,22 @@ kubectl apply -f simplewebserver.yaml
 # Accessing the Service
 
 ```shell
-kubectl get all | grep "simplewebserver"
+
+# Open browser to see deployed app using minikube
+minikube start
+minikube service simplewebserver-service
+
 ```
 
+
+## Cleaning up
+
+```shell
+# To delete the Service, enter this command:
+
+kubectl delete services simplewebserver-service
+
+# To delete the Deployment, the ReplicaSet, and the Pods that are running the microservice, enter this command:
+
+kubectl delete deployment simplewebserver
+```
