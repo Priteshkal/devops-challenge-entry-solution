@@ -57,3 +57,48 @@ Other criteria for evaluation will be:
 
 ## SOLUTION
 
+---
+title: Toolchain Setup for macOS
+weight: 20
+---
+
+## Operating System Version
+
+This documentation is written for macOS High Sierra. If you are running
+an older version, it is recommended to upgrade before proceeding. Use
+this [Apple Support KB](https://support.apple.com/en-us/HT201260) to
+identify and verify the macOS version you are using.
+
+### Homebrew
+
+We will use [Homebrew](https://brew.sh/) for managing installation of
+other tools.
+
+``` shell
+# Run the official Homebrew installer
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Get Homebrew-Cask
+brew tap caskroom/cask
+
+# Update Homebrew
+brew update
+```
+
+## Install Tools
+
+``` shell
+# Docker
+# https://www.docker.com/community-edition
+brew cask install docker
+
+# Configure and Start Docker
+open /Applications/Docker.app
+
+# Kubernetes
+# https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/
+brew install kubectl
+
+# Test to ensure latest version of Kubernetes
+kubectl version --client
+```
