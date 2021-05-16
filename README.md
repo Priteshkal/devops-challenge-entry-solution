@@ -93,6 +93,7 @@ brew install kubectl
 kubectl version --client
 
 # Install Minikube to interact with application
+brew install minikube
 ```
 
 You need to [configure docker](https://docs.docker.com/engine/reference/commandline/login/) using `docker login`
