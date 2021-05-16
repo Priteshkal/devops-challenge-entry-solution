@@ -10,3 +10,4 @@ RUN chmod -R a+w /var/cache/nginx/ \
 COPY json-text.conf /etc/nginx/conf.d/
 EXPOSE 80
 USER nginx
+CMD ["nginx", "-g", "daemon off;"]

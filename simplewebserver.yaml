@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simplewebserver-deployment
+  labels:
+    app: simplewebserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simplewebserver
+  template:
+    metadata:
+      labels:
+        app: simplewebserver
+    spec:
+      containers:
+      - name: simplewebserver-pod
+        image: priteshk1/devops-challenge-entry-particle41:latest
+        ports: 
+            - containerPort: 80
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simplewebserver-service
+spec:
+  type: NodePort
+  selector:
+    app: simplewebserver
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
