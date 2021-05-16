@@ -109,7 +109,7 @@ cd devops-challenge-entry-solution
 Once all the above tools are set up you are ready to Deploy a microservice locally with the following features after deploying it using the following command in the terminal:
 
 ```shell
-# Simple Microservice
+# Deploying the Microservice
 kubectl apply -f simplewebserver.yaml
 
 ```
