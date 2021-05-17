@@ -127,6 +127,7 @@ kubectl apply -f simplewebserver.yaml
 ```
 
 - Dockerfile for this microservice is published as an [image](https://hub.docker.com/repository/docker/priteshk1/devops-challenge-entry-particle41/general) to Docker Hub and is being pulled from there. Application is configured to run as a non-root user - "NGNIX" in the container.
+![Alt text](./readme_assets/nginx_user_process.png?raw=true "Service running as NGINX user")
 
 - Kubernetes manifest in YAML format, containing a Deployment and a Service, to deploy your microservice on Kubernetes. Your Deployment must use your public Docker image.
 
